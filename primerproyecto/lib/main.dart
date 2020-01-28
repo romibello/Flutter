@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'description_place.dart';
 import 'review_list.dart';
-
+import 'header_appbar.dart';
 
 
 void main() => runApp(MyApp());
@@ -19,13 +19,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('tituloo'),
-          centerTitle: true,
-          backgroundColor: Colors.red[900],
+        body: Stack(//Stack me permite acomodar los elementos unos sobre otros
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                DescriptionPlace("bahamas", 4, dummyDescription),
+                ReviewList()
+              ],
+            ),
+            HeaderAppBar(),
+          ],
         ),
-        body: new DescriptionPlace("bahamas", 4, dummyDescription) ,//new ReviewList()
-        
       ),//MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
